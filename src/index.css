@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+*{
+  font-family: 'Inter';
+}
+
+.ScrollbarsCustom-TrackX {
+  background-color: #f1f1f1 !important; 
+  border-radius: 9999px !important; 
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 50% !important; 
+  height: 7px !important;
+}
+
+@media (min-width: 770px) {
+  .ScrollbarsCustom-TrackX {
+    width: 40% !important; 
+  }
+}
+
+.ScrollbarsCustom-ThumbX {
+  background-color: #c0c0c0 !important;
+  border-radius: 9999px !important; 
+}
+
+
+

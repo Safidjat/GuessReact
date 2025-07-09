@@ -1,0 +1,50 @@
+import { useEffect, useRef, useState } from "react";
+import { FaPause } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import { Parallax } from "react-scroll-parallax";
+
+function HomeVideo() {
+    const [play,setPlay]=useState(false);
+    const videoRef = useRef(null);
+
+    useEffect(() => {
+        const videoAttr = videoRef.current;
+        if (play) {
+            videoAttr.play();
+        } else {
+            videoAttr.pause();
+        }
+        return ()=>{
+            videoAttr.pause();
+        }
+    }, [play]);
+
+    return (
+        <div className="relative min-[700px]:max-[770px]:w-[86%] m-auto" data-init="true">
+            <NavLink className="text-decoration-none w-100" aria-label="Shop for new arrivals and refresh your look." >
+                <video ref={videoRef} className=" img-fluid position-absolute top-0 bottom-0 start-0 end-0 m-auto" width="1920" height="1080" autoPlay  loop  muted  playsInline  data-user-paused="true">
+                    <source src="https://img.guess.com/video/upload/q_auto,w_1920,h_1080,c_limit/v1/NA/Asset/North%20America/E-Commerce/Guess/Bug%20Number/10774/G_Site_Home_ContentCenter_July_10774_01.mp4" type="video/mp4" media="(min-width: 768px)" />
+                </video>
+            </NavLink>
+            
+            <div onClick={(e)=>e.preventDefault()} className="absolute bottom-[12%] right-[12%]">
+                <button className="bg-transparent border-0 ">
+                    {
+                        play ? <FaPause onClick={()=>{setPlay(false)}} color="#e9e6e1" opacity={.85} cursor={'pointer'}/> 
+                             : <FaPlay onClick={()=>setPlay(true)} color="#e9e6e1" opacity={.85} cursor={'pointer'}/>
+                    }
+                </button>
+            </div>
+
+            <Parallax 
+            speed={15}
+            className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2"
+            >
+                <div className="max-[590px]:w-[200px] max-[590px]:h-[40px] max-[350px]:w-[100px] max-[350px]:h-[20px] w-[338px] h-[70px]"><img src="/assets/img/logoWhite.svg" className="w-full h-full object-cover"/></div>
+            </Parallax>
+        </div>
+    )
+}
+
+export default HomeVideo
