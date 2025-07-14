@@ -23,8 +23,8 @@ function HomeVideo() {
     return (
         <div className="relative min-[700px]:max-[770px]:w-[86%] m-auto" data-init="true">
             <NavLink className="text-decoration-none w-100" aria-label="Shop for new arrivals and refresh your look." >
-                <video ref={videoRef} className=" img-fluid position-absolute top-0 bottom-0 start-0 end-0 m-auto" width="1920" height="1080" autoPlay  loop  muted  playsInline  data-user-paused="true">
-                    <source src="https://img.guess.com/video/upload/q_auto,w_1920,h_1080,c_limit/v1/NA/Asset/North%20America/E-Commerce/Guess/Bug%20Number/10774/G_Site_Home_ContentCenter_July_10774_01.mp4" type="video/mp4" media="(min-width: 768px)" />
+                <video ref={videoRef} className=" img-fluid position-absolute top-0 bottom-0 start-0 end-0 m-auto" autoPlay  loop  muted  playsInline  data-user-paused="true">
+                    <source src="https://img.guess.com/video/upload/q_auto,w_1920,h_1080,c_limit/v1/NA/Asset/North%20America/E-Commerce/Guess/Bug%20Number/10774/G_Site_Home_ContentCenter_July_10774_01.mp4" type="video/mp4"/>
                 </video>
             </NavLink>
             

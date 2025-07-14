@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import Header from "./header"
-import Main from "./main"
-import Footer from "./footer"
+import Header from "./components/header"
+import Main from "./components/main"
+import Footer from "./components/footer"
+import Category from "./components/main/Category"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Main />} />
+          <Route path='/category/subcategory/type' element={<Category />} />
         </Routes>
       </main>
       <Footer />
