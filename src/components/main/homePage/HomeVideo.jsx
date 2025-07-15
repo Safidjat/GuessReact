@@ -5,20 +5,20 @@ import { NavLink } from "react-router-dom";
 import { Parallax } from "react-scroll-parallax";
 
 function HomeVideo() {
-    const [play,setPlay]=useState(false);
+    const [play,setPlay]=useState(true);
     const videoRef = useRef(null);
 
+    function handleVideoPlay(){
+        if(play) {videoRef.current.pause(); setPlay(false)}
+        else {videoRef.current.play(); setPlay(true)}
+    }
+
     useEffect(() => {
-        const videoAttr = videoRef.current;
-        if (play) {
-            videoAttr.play();
-        } else {
-            videoAttr.pause();
-        }
         return ()=>{
-            videoAttr.pause();
+            videoRef.current.pause();
+            videoRef.current=null;
         }
-    }, [play]);
+    }, []);
 
     return (
         <div className="relative min-[700px]:max-[770px]:w-[86%] m-auto" data-init="true">
@@ -29,10 +29,10 @@ function HomeVideo() {
             </NavLink>
             
             <div onClick={(e)=>e.preventDefault()} className="absolute bottom-[12%] right-[12%]">
-                <button className="bg-transparent border-0 ">
+                <button onClick={handleVideoPlay} className="bg-transparent border-0 ">
                     {
-                        play ? <FaPause onClick={()=>{setPlay(false)}} color="#e9e6e1" opacity={.85} cursor={'pointer'}/> 
-                             : <FaPlay onClick={()=>setPlay(true)} color="#e9e6e1" opacity={.85} cursor={'pointer'}/>
+                        play ? <FaPause color="#e9e6e1" opacity={.85} cursor={'pointer'}/> 
+                             : <FaPlay color="#e9e6e1" opacity={.85} cursor={'pointer'}/>
                     }
                 </button>
             </div>

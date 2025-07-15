@@ -1,10 +1,18 @@
+import { faAngleDown, faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
+import { FaPlus } from "react-icons/fa6";
 import { HiXMark } from "react-icons/hi2";
+import { Link } from "react-router-dom";
+import Blog from "./Blog";
+import CustomPagination from "./CustomPagination";
 
 function Category() {
     const [modalShow, setModalShow] = useState(false);
+    const [currentPage,setCurrentPage]=useState(1);
+    const [pageCount,setPageCount]=useState(31)
 
     return (
         <div className="w-full min-[700px]:max-[770px]:w-[86%] m-auto">
@@ -19,8 +27,39 @@ function Category() {
                     <BsPlusLg color='#546979' />
                 </button>
             </div>
-            <div className="px-[10px]">
-
+            <div className="px-[10px] py-[20px] flex flex-col min-[270px]:flex-row gap-[15px] justify-start items-center">
+                <div className="flex items-center gap-[5px]">
+                    <h1 className="text-[16px] text-black font-[500] underline">Women's Clothing</h1>
+                    <FontAwesomeIcon icon={faAngleDown} size="12px" color="black"/>
+                </div>
+                <h1 className="text-[12px] text-[#666] font-[400]">(1,088 Styles)</h1>
+            </div>
+            <div className="border-y border-y-[#eee] w-full flex items-center">
+                <div className="cursor-pointer border-r border-r-[#eee] w-[50%] text-[12px] text-black flex justify-star items-center px-[10px] py-[15px]">
+                    <h1 className="underline">Sort by</h1>
+                    <FontAwesomeIcon icon={faAngleDown} width={14} color="black"/>
+                </div>
+                <div className="cursor-pointer w-[50%] text-[12px] text-black flex justify-star items-center px-[10px] py-[15px]">
+                    <h1 className="underline">Filter</h1>
+                    <FontAwesomeIcon icon={faAngleDown} width={14} color="black"/>
+                </div>
+            </div>
+            <div className="w-full">
+                <Blog />
+                <Link className="py-[50px] pr-[20px] flex items-center justify-end">
+                    <h1 className="underline text-[14px] font-[400] text-black">View all</h1>
+                    <CustomPagination count={pageCount}  page={currentPage} setCurrentPage={setCurrentPage} />
+                </Link>
+                <div className="pl-[20px] mb-[50px] flex flex-col items-start gap-[20px]">
+                    <Link className="flex items-center gap-[2px]">
+                        <h1 className="text-[16px] font-[500]">Shop Classic Looks for Women</h1>
+                        <FaPlus size={16} fontWeight={400}/>
+                    </Link>
+                    <Link className="flex items-center gap-[2px]">
+                        <h1 className="text-[16px] font-[500]">Styles for Every Occasion</h1>
+                        <FaPlus size={16} fontWeight={400}/>
+                    </Link>
+                </div>
             </div>
 
              <ModalWarning setModalShow={setModalShow} modalShow={modalShow}/>

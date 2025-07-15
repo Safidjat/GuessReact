@@ -1,8 +1,10 @@
 import { ParallaxProvider } from "react-scroll-parallax"
-import HomeSlider from "./HomeSlider"
 import HomeVideo from "./HomeVideo"
+import HomeSlider from "./HomeSlider"
 import HomeThreesomeImg from "./HomeThreesomeImg"
 import HomeDefine from "./HomeDefine"
+
+
 
 function Main() {
   return (

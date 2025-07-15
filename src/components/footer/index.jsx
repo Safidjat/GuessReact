@@ -7,6 +7,8 @@ import { faFacebookF, faInstagram, faTiktok, faXTwitter, faYoutube } from "@fort
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { footerList } from "../../server/footerData";
 import { CheckedCircleIcon, EmptyCircleIcon } from "../../../public/assets/icons/footerIcons";
+import { useMatchMedia } from "../../hooks/use-match-media";
+import { faMarker } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -16,28 +18,32 @@ function Footer() {
     const handleChange = (event) => {
         setChecked(event.target.checked);
     };
+    const isLessThanLg=useMatchMedia('(max-width:1020px)')
 
 
     return (
         <>
             <div className="text-black m-auto w-full min-[545px]:w-[60%] min-[1020px]:w-full min-[1020px]:bg-[#f5f5f5] min-[1020px]:py-[50px]">
                 <div className="min-[1020px]:w-[97%] min-[1020px]:m-auto min-[1020px]:flex min-[1020px]:items-start min-[1020px]:gap-[200px]">
-                    <div className="max-[1020px]:hidden min-[1020px]:w-[calc((100%-100px)/2)] flex justify-between items-start">
-                        {
-                            footerList.map((item,i)=>
-                                <ul key={i}>
-                                    {
-                                        item.options.map((option,index)=>(
-                                            <li 
-                                            key={index} 
-                                            className={`${index==0 ? 'pb-[20px] text-[14px] font-[600]' 
-                                                                   : 'text-[12px] font-[400] pb-[10px]'}`}
-                                            >{index==0 ? item.name : option}</li>
-                                        ))
-                                    }
-                                </ul>)
-                        }
-                    </div>
+                    {
+                        !isLessThanLg &&
+                        (<div className="min-[1020px]:w-[calc((100%-100px)/2)] flex justify-between items-start">
+                            {
+                                footerList.map((item,i)=>
+                                    <ul key={i}>
+                                        {
+                                            item.options.map((option,index)=>(
+                                                <li 
+                                                key={index} 
+                                                className={`${index==0 ? 'pb-[20px] text-[14px] font-[600]' 
+                                                                    : 'text-[12px] font-[400] pb-[10px]'}`}
+                                                >{index==0 ? item.name : option}</li>
+                                            ))
+                                        }
+                                    </ul>)
+                            }
+                        </div>)
+                    }
                     <div className="min-[1020px]:w-[calc((100%-100px)/2)] bg-[#f5f5f5] px-[clamp(10px,1.5vw,20px)] min-[1020px]:py-0 py-[50px] flex flex-col gap-[16px]">
                         <h1 className="text-[24px] font-[500]">Join the List & Get 15% Off</h1>
                         <p className="text-[16px]">
@@ -68,7 +74,12 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="m-auto w-full min-[545px]:w-[60%] min-[1020px]:w-[97%] min-[1020px]:hidden"><AccordionFooter /></div> 
+            {
+                isLessThanLg && 
+                (<div className="m-auto w-full min-[545px]:w-[60%] min-[1020px]:w-[97%]">
+                    <AccordionFooter />
+                </div>)
+            } 
             <div className="flex min-[1020px]:flex-row min-[1020px]:justify-between flex-col gap-[30px] items-center text-black m-auto w-full min-[545px]:w-[80%]  min-[1020px]:w-[97%] py-[15px]">
                 <div className="w-full flex flex-col gap-[30px] items-center min-[770px]:flex-row min-[770px]:justify-between">
                     <div className="min-[770px]:order-2 flex items-center gap-[20px]">
@@ -82,7 +93,7 @@ function Footer() {
                     data-cookie-version={1}
                     data-countrylandingurl="https://www.guess.com/us/en/countries/"
                     >
-                        <FontAwesomeIcon icon={FaMapMarkerAlt} fixedWidth fontSize={16} color='black'/>
+                        <FontAwesomeIcon icon={faMarker} fixedWidth fontSize={11} color='black'/>
                         <select
                             className="country-selector__dropdown js-country-selector"
                             id="site-country-selector"
@@ -111,7 +122,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="w-full text-nowrap text-[#71767f] text-[13px] flex flex-col min-[770px]:flex-row min-[1020px]:flex-col  items-center">
-                    <p>&copy; GUESS? Inc. 2025 All rights reserved.</p>
+                    <p className="text-wrap">&copy; GUESS? Inc. 2025 All rights reserved.</p>
                     <ul className="flex items-center gap-[15px] max-[420px]:justify-center max-[420px]:flex-wrap">
                         <li className="underline">Terms & Conditions</li>
                         <li className="underline">Privacy Policy</li>

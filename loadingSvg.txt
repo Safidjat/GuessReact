@@ -1,0 +1,7 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" preserveAspectRatio="xMidYMid meet"> 
+    <title>Spinner</title>
+    <g clip-path="url(#__lottie_element_2)"> <g transform="matrix(-0.29565921425819397,-0.5085853338241577,0.5085853338241577,-0.29565921425819397,28.135372161865234,98.08934020996094)" opacity="1" style="display: block;"> 
+    <path class="spinner-svg" stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(0,0,0)" stroke-opacity="1" stroke-width="7" d=" M-4.06,42.03 C-4.06,42.03 63.67,159.33 63.67,159.33 C63.67,159.33 131.39,42.03 131.39,42.03 C131.39,42.03 -4.06,42.03 -4.06,42.03z">
+    </path> </g> </g> 
+</svg>
