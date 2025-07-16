@@ -4,7 +4,7 @@ import { TbHeart } from "react-icons/tb";
 function Item({obj:{img,title,colors,newArrival,sustainable,totalPrice,price}}) {
     return (
         <motion.div layout className='bg-white'>
-            <div className='aspect-[264/356] w-full'><img className='object-cover size-full' src={img[0]}/></div>
+            <div className='aspect-[264/356] w-full'><img className='object-cover size-full' src={img[0] ? img[0]:null}/></div>
             <div className='w-full text-black text-[12px] py-[10px]'>
                 <div className='flex items-start justify-between'>
                     <h2 className='min-h-[54px] font-[500]'>{title}</h2>

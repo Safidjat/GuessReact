@@ -11,7 +11,7 @@ function App() {
       <main>
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/category/subcategory/type' element={<Category />} />
+          <Route path='/category' element={<Category />} />
         </Routes>
       </main>
       <Footer />

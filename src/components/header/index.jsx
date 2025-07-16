@@ -6,7 +6,7 @@ import { VscHeart } from "react-icons/vsc";
 import { PiMagnifyingGlassLight } from "react-icons/pi";
 import { SlHandbag } from "react-icons/sl";
 import { LiaBarsSolid } from "react-icons/lia";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Marquee from "react-fast-marquee";
 import { useMatchMedia } from '../../hooks/use-match-media';
 import { useEffect, useState } from 'react';
@@ -74,7 +74,7 @@ export default function Header(props) {
                       {
                         !isLessTnan1025 &&
                         <ul className='h-full flex gap-[20px] my-0 items-center text-[12px] text-black'>
-                            <li className='h-full grid place-items-center cursor-pointer'><span>Women</span></li>
+                            <Link to={'/category'} className='h-full grid place-items-center cursor-pointer'><span>Women</span></Link>
                             <li className='h-full grid place-items-center cursor-pointer'><span>Handbags</span></li>
                             <li className='h-full grid place-items-center cursor-pointer'><span>Shoes</span></li>
                             <li className='h-full grid place-items-center cursor-pointer'><span>Men</span></li>
