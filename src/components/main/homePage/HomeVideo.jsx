@@ -14,10 +14,11 @@ function HomeVideo() {
     }
 
     useEffect(() => {
-        return () => {
-            if (videoRef.current) {
+        return () => {                     //React итак сам планирует при переходе на др стр:
+            if (videoRef.current) {        //1.Запустить функцию очистки (cleanup) из useEffect компонента HomeVideo.
                 videoRef.current.pause();
-                videoRef.current = null;
+                                           //2.!!!Удалить DOM-узлы, принадлежащие HomeVideo, из HTML-документа.
+                videoRef.current = null;   //на этапе 1 ты опустошаешь один из узлов и реакт на 2 этапе его не находит чтобы опустошить самому 
             }
         }
     }, []);
